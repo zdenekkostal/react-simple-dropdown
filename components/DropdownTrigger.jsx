@@ -5,26 +5,28 @@ const DropdownTrigger = createClass({
 
   propTypes: {
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    tagName: PropTypes.string
   },
 
   getDefaultProps () {
     return {
-      className: ''
+      className: '',
+      tagName: 'a'
     };
   },
 
   render () {
-    const { children, className } = this.props;
+    const { children, className, tagName } = this.props;
     const props = {
       ...this.props,
       className: `dropdown__trigger ${className}`
     };
 
     return (
-      <a {...props} href="#dropdown-trigger">
+      <tagName {...props}>
         {children}
-      </a>
+      </tagName>
     );
   }
 });
